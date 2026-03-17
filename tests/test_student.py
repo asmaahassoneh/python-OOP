@@ -118,8 +118,13 @@ def test_name_and_id_are_stripped():
     assert student.student_id == "101"
 
 
-
 def test_average_is_rounded_to_two_decimals():
     student = Student("Asmaa", "101", [90, 91, 92])
 
     assert student.get_average() == 91.0
+
+
+def test_repr_method():
+    student = Student("Asmaa", "101", [90, 95])
+
+    assert repr(student) == ("Student(name='Asmaa', student_id='101', grades=[90, 95])")

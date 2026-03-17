@@ -1,4 +1,7 @@
 from student import Student
+from professor import Professor
+from graduate_student import GraduateStudent
+from course import Course
 
 
 def main() -> None:
@@ -8,17 +11,39 @@ def main() -> None:
         student3 = Student("Ali", "103", [88, 95])
         student4 = Student("Ahmad", "104", [65, 70])
 
-        students = [student1, student2, student3, student4]
+        grad_student = GraduateStudent("Lina", "201", [92, 94], "AI in Education")
 
-        student1.add_grade(100)
+        students = [student1, student2, student3, student4, grad_student]
+
+        professor = Professor("Dr. Anas Toma")
+
+        professor.assign_grade(student1, 100)
+        professor.assign_grade(student2, 85)
+        professor.assign_grade(grad_student, 98)
+
+        course = Course("Python OOP")
+
+        for student in students:
+            course.add_student(student)
 
         print("=== Students ===")
         for student in students:
             print(student)
 
-        print("\n=== Averages ===")
+        print("\n=== Individual Averages ===")
         for student in students:
             print(f"{student.name}: {student.get_average()}")
+
+        print("\n=== Course Info ===")
+        print(course)
+        print(f"Course Average: {course.get_average_grade()}")
+
+        print("\n=== Encapsulation Test ===")
+        grades_copy = student1.grades
+        grades_copy.append(0)
+
+        print("Modified external list:", grades_copy)
+        print("Actual student grades:", student1.grades)
 
     except ValueError as e:
         print("Error:", e)
