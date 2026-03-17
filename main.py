@@ -3,7 +3,6 @@ from student import Student
 
 def main() -> None:
     try:
-        # Create students
         student1 = Student("Asmaa", "101", [90, 95])
         student2 = Student("Tala", "102", [90])
         student3 = Student("Ali", "103", [88, 95])
