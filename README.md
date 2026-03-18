@@ -16,7 +16,8 @@ This project demonstrates Object-Oriented Programming (OOP) concepts in Python b
 ---
 
 ## 🧱 Project Structure
-.
+```
+OOP
 ├── student.py
 ├── graduate_student.py
 ├── professor.py
