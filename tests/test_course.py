@@ -135,3 +135,16 @@ def test_course_average_rounding():
     course.add_student(student2)
 
     assert course.get_average_grade() == 90.0
+
+
+def test_course_iteration():
+    course = Course("Python")
+    s1 = Student("A", "101", [90])
+    s2 = Student("B", "102", [80])
+
+    course.add_student(s1)
+    course.add_student(s2)
+
+    names = [student.name for student in course]
+
+    assert names == ["A", "B"]

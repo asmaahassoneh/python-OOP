@@ -52,6 +52,15 @@ class Student:
     def get_average(self) -> float:
         return round(sum(self._grades) / len(self._grades), 2)
 
+    def __eq__(self, other) -> bool:
+        if not isinstance(other, Student):
+            return False
+        return self.student_id == other.student_id
+
+    @property
+    def gpa(self) -> float:
+        return round((self.get_average() / 100) * 4, 2)
+
     def __str__(self) -> str:
         return (
             f"Student(ID: {self.student_id}, "

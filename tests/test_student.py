@@ -128,3 +128,28 @@ def test_repr_method():
     student = Student("Asmaa", "101", [90, 95])
 
     assert repr(student) == ("Student(name='Asmaa', student_id='101', grades=[90, 95])")
+
+
+def test_student_equality_different_ids():
+    s1 = Student("Asmaa", "101", [90])
+    s2 = Student("Ali", "102", [80])
+
+    assert s1 != s2
+
+
+def test_student_equality_same_object():
+    s1 = Student("Asmaa", "101", [90])
+
+    assert s1 == s1
+
+
+def test_student_equality_with_non_student():
+    s1 = Student("Asmaa", "101", [90])
+
+    assert s1 != "not a student"
+
+
+def test_gpa_property():
+    student = Student("Asmaa", "101", [100, 100])
+
+    assert student.gpa == 4.0

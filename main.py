@@ -34,6 +34,10 @@ def main() -> None:
         for student in students:
             print(f"{student.name}: {student.get_average()}")
 
+        print("\n=== GPA ===")
+        for student in students:
+            print(f"{student.name}: {student.gpa}")
+
         print("\n=== Course Info ===")
         print(course)
         print(f"Course Average: {course.get_average_grade()}")

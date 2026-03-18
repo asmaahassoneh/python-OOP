@@ -25,6 +25,9 @@ class Course:
         total = sum(student.get_average() for student in self.students)
         return round(total / len(self.students), 2)
 
+    def __iter__(self):
+        return iter(self.students)
+
     def __str__(self) -> str:
         return f"Course({self.name}, Students: {len(self.students)})"
 
