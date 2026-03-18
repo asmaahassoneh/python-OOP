@@ -7,23 +7,31 @@ This project demonstrates Object-Oriented Programming (OOP) concepts in Python b
 ## 📌 Features
 
 - Create and manage students with grades
-- Calculate student averages
+- Calculate student averages and GPA
 - Support for graduate students with thesis titles
 - Professor assigns grades to students
-- Course contains multiple students (composition)
+- Course contains multiple students using composition
+- Course supports iteration
+- Student equality comparison based on ID
+- Structured into a Python package (`school`)
 - Full test coverage using **pytest**
+- Dependency management using `requirements.txt`
 
 ---
 
 ## 🧱 Project Structure
 ```
-OOP
-├── student.py
-├── graduate_student.py
-├── professor.py
-├── course.py
+```text
+OOP/
 ├── main.py
-├── tests/
+├── requirements.txt
+├── school/
+│   ├── __init__.py
+│   ├── student.py
+│   ├── graduate_student.py
+│   ├── professor.py
+│   └── course.py
+└── tests/
 │   ├── test_student.py
 │   ├── test_graduate_student.py
 │   ├── test_professor.py
@@ -62,6 +70,8 @@ OOP
   - `add_grade()`
   - `get_average()`
   - `__str__()`
+- Property:
+  - `gpa`
 
 ### GraduateStudent
 - Inherits from `Student`
@@ -77,7 +87,8 @@ OOP
 - Methods:
   - `add_student()`
   - `get_average_grade()`
-
+- Supports iteration:
+  - `for student in course`
 ---
 
 ## ▶️ How to Run
@@ -97,10 +108,10 @@ python -m venv .venv
 .venv\Scripts\activate
 ```
 
-Install required tools:
+Install dependencies:
 
 ```bash
-pip install flake8 black pytest
+pip install -r requirements.txt
 ```
 
 Run linting and formatting:
