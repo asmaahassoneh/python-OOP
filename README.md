@@ -27,7 +27,10 @@ This project demonstrates Object-Oriented Programming (OOP) concepts in Python b
 │   ├── test_graduate_student.py
 │   ├── test_professor.py
 │   └── test_course.py
-
+│
+├── .gitignore
+└── README.md
+```
 
 ---
 
