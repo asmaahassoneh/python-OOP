@@ -1,4 +1,4 @@
-from student import Student
+from school.student import Student
 
 
 class Course:

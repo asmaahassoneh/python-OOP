@@ -1,5 +1,5 @@
 import pytest
-from student import Student
+from school.student import Student
 
 
 @pytest.fixture(autouse=True)

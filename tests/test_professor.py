@@ -1,7 +1,7 @@
 import pytest
 
-from student import Student
-from professor import Professor
+from school.student import Student
+from school.professor import Professor
 
 
 @pytest.fixture(autouse=True)

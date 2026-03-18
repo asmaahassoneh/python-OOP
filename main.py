@@ -1,7 +1,4 @@
-from student import Student
-from professor import Professor
-from graduate_student import GraduateStudent
-from course import Course
+from school import Student, Professor, GraduateStudent, Course
 
 
 def main() -> None:

@@ -1,7 +1,12 @@
 class Student:
     used_ids = set()
 
-    def __init__(self, name: str, student_id: str, grades: list[float]) -> None:
+    def __init__(
+        self,
+        name: str,
+        student_id: str,
+        grades: list[float],
+    ) -> None:
         if not isinstance(name, str) or not name.strip():
             raise ValueError("Name must be a non-empty string")
 
