@@ -153,3 +153,83 @@ def test_gpa_property():
     student = Student("Asmaa", "101", [100, 100])
 
     assert student.gpa == 4.0
+
+
+def test_from_single_grade_classmethod():
+    student = Student.from_single_grade("Asmaa", "101", 95)
+
+    assert isinstance(student, Student)
+    assert student.name == "Asmaa"
+    assert student.student_id == "101"
+    assert student.grades == [95]
+
+
+def test_is_passing_true():
+    assert Student.is_passing(60) is True
+    assert Student.is_passing(85) is True
+
+
+def test_is_passing_false():
+    assert Student.is_passing(59) is False
+    assert Student.is_passing(0) is False
+
+
+def test_is_passing_invalid_type():
+    with pytest.raises(ValueError, match="Grade must be a number"):
+        Student.is_passing("A")
+
+
+def test_name_setter_success():
+    student = Student("Asmaa", "101", [90, 95])
+
+    student.name = "  Ali  "
+
+    assert student.name == "Ali"
+
+
+def test_name_setter_invalid():
+    student = Student("Asmaa", "101", [90, 95])
+
+    with pytest.raises(ValueError, match="Name must be a non-empty string"):
+        student.name = ""
+
+
+def test_student_id_setter_success():
+    student = Student("Asmaa", "101", [90, 95])
+
+    student.student_id = "202"
+
+    assert student.student_id == "202"
+
+
+def test_student_id_setter_strips_spaces():
+    student = Student("Asmaa", "101", [90, 95])
+
+    student.student_id = " 202 "
+
+    assert student.student_id == "202"
+
+
+def test_student_id_setter_invalid():
+    student = Student("Asmaa", "101", [90, 95])
+
+    with pytest.raises(ValueError, match="Student ID must be a non-empty string"):
+        student.student_id = ""
+
+
+def test_student_id_setter_duplicate():
+    student1 = Student("Asmaa", "101", [90, 95])
+    student2 = Student("Ali", "102", [80, 85])
+
+    with pytest.raises(ValueError, match="Student ID must be unique"):
+        student2.student_id = "101"
+
+
+def test_gpa_updates_automatically_after_adding_grade():
+    student = Student("Asmaa", "101", [100])
+
+    assert student.gpa == 4.0
+
+    student.add_grade(50)
+
+    assert student.gpa == 3.0
