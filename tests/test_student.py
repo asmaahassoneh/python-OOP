@@ -218,7 +218,7 @@ def test_student_id_setter_invalid():
 
 
 def test_student_id_setter_duplicate():
-    student1 = Student("Asmaa", "101", [90, 95])
+    _ = Student("Asmaa", "101", [90, 95])
     student2 = Student("Ali", "102", [80, 85])
 
     with pytest.raises(ValueError, match="Student ID must be unique"):
