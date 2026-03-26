@@ -76,7 +76,7 @@ def test_graduate_student_str_method():
     )
 
     assert str(student) == (
-        "Student(ID: 201, Name: Asmaa, Grades: [90, 95], Average: 92.5), "
+        "Student(ID: 201, Name: Asmaa, Grades: [90, 95], Average: 92.5, GPA: 3.7), "
         "Thesis: AI in Education"
     )
 

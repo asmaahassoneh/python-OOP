@@ -6,7 +6,7 @@ class Course:
         if not isinstance(name, str) or not name.strip():
             raise ValueError("Course name must be a non-empty string")
 
-        self.name = name
+        self.name = name.strip()
         self.students: list[Student] = []
 
     def add_student(self, student: Student) -> None:
@@ -27,6 +27,9 @@ class Course:
 
     def __iter__(self):
         return iter(self.students)
+
+    def __len__(self) -> int:
+        return len(self.students)
 
     def __str__(self) -> str:
         return f"Course({self.name}, Students: {len(self.students)})"

@@ -148,3 +148,20 @@ def test_course_iteration():
     names = [student.name for student in course]
 
     assert names == ["A", "B"]
+
+
+def test_course_len_empty():
+    course = Course("Python OOP")
+
+    assert len(course) == 0
+
+
+def test_course_len_after_adding_students():
+    course = Course("Python OOP")
+    s1 = Student("Asmaa", "101", [90, 95])
+    s2 = Student("Ali", "102", [80, 85])
+
+    course.add_student(s1)
+    course.add_student(s2)
+
+    assert len(course) == 2

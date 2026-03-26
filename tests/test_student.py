@@ -33,7 +33,7 @@ def test_str_method():
     student = Student("Asmaa", "101", [90, 95])
 
     assert str(student) == (
-        "Student(ID: 101, Name: Asmaa, Grades: [90, 95], Average: 92.5)"
+        "Student(ID: 101, Name: Asmaa, Grades: [90, 95], Average: 92.5, GPA: 3.7)"
     )
 
 
@@ -60,12 +60,12 @@ def test_empty_grades():
 
 
 def test_invalid_grade_in_init_type():
-    with pytest.raises(ValueError, match="Each grade must be a number"):
+    with pytest.raises(ValueError, match="Grade must be a number"):
         Student("Asmaa", "101", [90, "A"])
 
 
 def test_invalid_grade_in_init_range():
-    with pytest.raises(ValueError, match="Each grade must be between 0 and 100"):
+    with pytest.raises(ValueError, match="Grade must be between 0 and 100"):
         Student("Asmaa", "101", [90, 150])
 
 
